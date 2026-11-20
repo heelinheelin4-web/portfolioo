@@ -1,0 +1,768 @@
+/* ===================================================
+   BASE STYLES
+   =================================================== */
+
+/* Theme variables */
+:root {
+    --primary-color: hsl(289, 60%, 14%);
+    --secondary-color: hsl(0, 0%, 42%);
+    --accent-color: hsl(241, 100%, 22%);
+
+    --background-color: hsl(220, 30%, 97%);
+    --card-color: hsl(0, 0%, 100%);
+
+    --text-color: hsl(220, 20%, 20%);
+    --light-text: hsl(220, 10%, 40%);
+
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+
+    --border-radius: 1rem;
+}
+
+
+/* Box sizing */
+* {
+    box-sizing: border-box;
+}
+
+
+/* Smooth section navigation */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+
+/* Body */
+body {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+
+/* Group selector */
+h1,
+h2,
+h3,
+h4,
+p {
+    margin-top: 0;
+}
+
+
+/* Descendant selector */
+section p {
+    line-height: 1.8;
+}
+
+
+/* Section spacing */
+section {
+    padding: 4rem 8%;
+}
+
+
+/* Image sizing */
+img {
+    max-width: 100%;
+}
+
+
+/* Form controls */
+input,
+textarea,
+button {
+    max-width: 100%;
+    font: inherit;
+}
+
+
+/* ===================================================
+   NAVBAR
+   =================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background-color: var(--primary-color);
+}
+
+
+/* Flexbox navigation */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: var(--spacing-small);
+
+    padding: var(--spacing-medium) 8%;
+}
+
+
+/* Website name */
+nav > a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+
+/* Navigation list */
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 0.25rem;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Navigation links */
+nav ul a {
+    display: block;
+
+    color: white;
+    text-decoration: none;
+
+    padding: 0.5rem 0.7rem;
+
+    border-radius: 0.5rem;
+
+    transition: 0.3s;
+}
+
+
+/* Hover effect */
+nav ul a:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+
+/* ===================================================
+   HERO SECTION
+   =================================================== */
+
+#home {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+    align-content: center;
+
+    min-height: 85vh;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        hsl(314, 70%, 45%),
+        hsl(294, 97%, 38%),
+        hsl(220, 100%, 54%)
+    );
+
+    background-size: cover;
+
+    color: white;
+}
+
+
+/* Main heading */
+#home h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Subtitle */
+#home h2 {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+
+/* Description */
+#home p {
+    max-width: 38rem;
+}
+
+
+/* Badge */
+.badge {
+    position: absolute;
+
+    top: 1.5rem;
+    right: 1.5rem;
+
+    background-color: white;
+    color: var(--primary-color);
+
+    padding: 0.5rem 1rem;
+
+    border-radius: 2rem;
+
+    font-weight: bold;
+}
+
+
+/* Hero button */
+#home > a {
+    display: inline-block;
+
+    padding: 0.8rem 1.5rem;
+
+    background-color: var(--accent-color);
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 2rem;
+
+    transition: 0.3s;
+}
+
+
+#home > a:hover {
+    transform: translateY(-0.3rem);
+}
+
+
+/* ===================================================
+   ABOUT SECTION
+   =================================================== */
+
+#about {
+    display: flow-root;
+
+    max-width: 70rem;
+    margin: 0 auto;
+
+    text-align: left;
+}
+
+
+/* About heading */
+#about h2 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+
+/* Floating profile image */
+#about img {
+    float: left;
+
+    width: 12rem;
+    max-width: 35%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    margin: 0 1.5rem 1rem 0;
+}
+
+
+/* First letter */
+#about p::first-letter {
+    font-size: 2.5rem;
+
+    font-weight: bold;
+
+    color: var(--accent-color);
+}
+
+
+/* ===================================================
+   CV SECTION
+   =================================================== */
+
+#cv {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(15rem, 1fr)
+    );
+
+    gap: var(--spacing-large);
+
+    background-color: hsl(220, 25%, 94%);
+}
+
+
+/* CV title */
+#cv > h2 {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    color: var(--primary-color);
+}
+
+
+/* CV cards */
+#cv > div {
+    min-width: 0;
+
+    background-color: var(--card-color);
+
+    padding: 1.5rem;
+
+    border-radius: var(--border-radius);
+}
+
+
+#cv h3 {
+    color: var(--primary-color);
+}
+
+
+/* Education timeline */
+#cv > div:first-of-type > div {
+    position: relative;
+
+    border-left: 0.2rem solid var(--accent-color);
+
+    padding: 0 0 1.5rem 1rem;
+
+    margin-left: 0.5rem;
+}
+
+
+/* Timeline circles */
+#cv > div:first-of-type > div::before {
+    content: "";
+
+    position: absolute;
+
+    left: -0.55rem;
+    top: 0.3rem;
+
+    width: 0.8rem;
+    height: 0.8rem;
+
+    background-color: var(--accent-color);
+
+    border: 0.2rem solid white;
+
+    border-radius: 50%;
+}
+
+
+/* CV headings */
+#cv h4 {
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    margin-bottom: 0.3rem;
+}
+
+
+/* Skills and languages */
+#cv ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.6rem;
+
+    list-style: none;
+
+    padding: 0;
+}
+
+
+/* Skill tags */
+#cv li {
+    border: 1px solid var(--secondary-color);
+
+    padding: 0.4rem 0.8rem;
+
+    border-radius: 2rem;
+
+    font-size: 0.85rem;
+    font-weight: bold;
+
+    color: var(--primary-color);
+}
+
+
+/* ===================================================
+   PROJECTS SECTION
+   =================================================== */
+
+#projects {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(15rem, 1fr)
+    );
+
+    gap: 1.5rem;
+}
+
+
+/* Projects title */
+#projects > h2 {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    color: var(--primary-color);
+}
+
+
+/* Project cards */
+#projects article {
+    min-width: 0;
+
+    background-color: var(--card-color);
+
+    border-radius: var(--border-radius);
+
+    overflow: hidden;
+
+    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+/* Hover animation */
+#projects article:hover {
+    transform: translateY(-0.5rem);
+
+    box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+
+/* Project images */
+#projects article img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+}
+
+
+/* Project headings */
+#projects article h3 {
+    padding: 0 1rem;
+
+    margin-top: var(--spacing-medium);
+
+    color: var(--primary-color);
+}
+
+
+/* Project descriptions */
+#projects article p {
+    padding: 0 1rem;
+}
+
+
+/* Project links */
+#projects article a {
+    display: inline-block;
+
+    margin: 0 1rem 1rem;
+
+    color: var(--accent-color);
+
+    font-weight: bold;
+}
+
+
+/* nth-child selectors */
+#projects article:nth-child(2) {
+    border-top: 0.3rem solid var(--secondary-color);
+}
+
+
+#projects article:nth-child(3) {
+    border-top: 0.3rem solid var(--accent-color);
+}
+
+
+#projects article:nth-child(4) {
+    border-top: 0.3rem solid hsl(280, 60%, 50%);
+}
+
+
+#projects article:nth-child(5) {
+    border-top: 0.3rem solid hsl(35, 80%, 50%);
+}
+
+
+#projects article:nth-child(6) {
+    border-top: 0.3rem solid hsl(140, 60%, 40%);
+}
+
+
+#projects article:nth-child(7) {
+    border-top: 0.3rem solid hsl(350, 70%, 50%);
+}
+
+
+/* ===================================================
+   CONTACT SECTION
+   =================================================== */
+
+#contact {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(16rem, 1fr)
+    );
+
+    gap: var(--spacing-large);
+
+    background-color: hsl(220, 25%, 94%);
+}
+
+
+/* Contact heading */
+#contact > h2 {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    color: var(--primary-color);
+}
+
+
+/* Introduction */
+#contact > p {
+    grid-column: 1 / -1;
+
+    text-align: center;
+}
+
+
+/* Contact information */
+#contact > div {
+    min-width: 0;
+
+    background-color: white;
+
+    padding: 1.5rem;
+
+    border-radius: var(--border-radius);
+
+    overflow-wrap: anywhere;
+}
+
+
+/* Contact form */
+#contact form {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(10rem, 1fr)
+    );
+
+    gap: var(--spacing-medium);
+
+    background-color: white;
+
+    padding: 1.5rem;
+
+    border-radius: var(--border-radius);
+}
+
+
+/* Labels */
+#contact label {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: var(--spacing-small);
+}
+
+
+/* Input fields */
+#contact input,
+#contact textarea {
+    width: 100%;
+
+    padding: 0.8rem;
+
+    border: 1px solid hsl(220, 15%, 80%);
+
+    border-radius: 0.5rem;
+
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+
+/* Attribute selector */
+#contact input[type="email"] {
+    background-color: hsl(220, 30%, 98%);
+}
+
+
+/* Focus effects */
+#contact input:focus,
+#contact textarea:focus {
+    outline: none;
+
+    border-color: var(--accent-color);
+
+    box-shadow: 0 0 0.5rem hsla(241, 80%, 40%, 0.35);
+}
+
+
+/* Message field */
+#contact form > div:nth-child(3) {
+    grid-column: 1 / -1;
+}
+
+
+/* Submit button */
+#contact button {
+    grid-column: 1 / -1;
+
+    padding: 0.8rem;
+
+    border: none;
+
+    background-color: var(--accent-color);
+
+    color: white;
+
+    border-radius: 2rem;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+#contact button:hover {
+    background-color: var(--primary-color);
+}
+
+
+/* ===================================================
+   FOOTER
+   =================================================== */
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: var(--spacing-large);
+
+    padding: 3rem 8%;
+
+    background-color: var(--primary-color);
+
+    color: white;
+}
+
+
+/* Footer columns */
+footer > div {
+    flex: 1 1 12rem;
+}
+
+
+footer h3 {
+    color: white;
+}
+
+
+footer a {
+    color: white;
+
+    text-decoration: none;
+}
+
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* ===================================================
+   BACK TO TOP BUTTON
+   =================================================== */
+
+body > a:last-child {
+    position: fixed;
+
+    right: 1.5rem;
+    bottom: 1.5rem;
+
+    background-color: var(--accent-color);
+
+    color: white;
+
+    padding: 0.8rem 1rem;
+
+    border: 0.15rem solid white;
+
+    border-radius: 2rem;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.2);
+
+    transition: 0.3s;
+}
+
+
+body > a:last-child:hover {
+    transform: translateY(-0.3rem);
+}
+
+
+/* ===================================================
+   KEYBOARD ACCESSIBILITY
+   =================================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid hsl(35, 100%, 55%);
+    outline-offset: 3px;
+}
